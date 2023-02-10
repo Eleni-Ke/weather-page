@@ -34,7 +34,7 @@ const CurrentWeather = (props) => {
   return (
     <>
       <div>
-        <img
+        {/* <img
           src={`http://openweathermap.org/img/wn/${cityData.weather[0].icon}.png`}
           alt=""
         />
@@ -44,7 +44,7 @@ const CurrentWeather = (props) => {
           <BsArrowUp />
           {cityData.main.temp_max}°C
         </div>
-        <h2>{cityData.main.temp}°C</h2>
+        <h2>{cityData.main.temp}°C</h2> */}
       </div>
       <div>
         <BsSunrise />

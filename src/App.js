@@ -16,7 +16,7 @@ class App extends Component {
   };
   changeCity = (nameFromInput) => {
     console.log(nameFromInput);
-    this.setState({ city: nameFromInput });
+    this.setState({ city: { name: nameFromInput } });
   };
   render() {
     return (

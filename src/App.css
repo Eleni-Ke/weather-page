@@ -41,7 +41,7 @@
 
 .top-row {
   display: flex;
-  background-color: #61dafb;
+  background-color: rgba(0, 0, 0, 0.16);
   justify-content: space-between;
   align-items: center;
   padding-inline: 2rem;
@@ -61,11 +61,12 @@
 .current-weather {
   display: flex;
   height: 30rem;
-  background-color: #00c0f6;
   font-size: 3rem;
   align-items: end;
   justify-content: space-between;
   padding-inline: 4rem;
+  border: 2px solid rgb(54, 8, 8);
+  margin: 1rem;
 }
 
 /* search part */
@@ -82,4 +83,8 @@
 .input-group .input-group-text {
   border: 1px solid black;
   padding: 5px 10px;
+}
+
+body {
+  background: url(https://www.climateandweather.net/wp-content/uploads/2022/08/hero-3.jpg);
 }
