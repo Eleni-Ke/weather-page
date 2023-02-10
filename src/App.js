@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Component } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { IoOptions } from "react-icons/io5";
+import { BsPlusCircle } from "react-icons/bs";
+import SearchResults from "./Components/SearchResults";
+import CityWeather from "./Components/CityWeather";
+import { Container } from "react-bootstrap";
+import SearchBar from "./Components/SearchBar";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    city: {
+      name: "Karlsruhe",
+    },
+  };
+  changeCity = (nameFromInput) => {
+    console.log(nameFromInput);
+    this.setState({ city: nameFromInput });
+  };
+  render() {
+    return (
+      <BrowserRouter>
+        <Container fluid className="top-row">
+          <Link className="nav-link" to="/">
+            <IoOptions />
+          </Link>
+          <Routes>
+            <Route path="/" element={<h1>{this.state.city.name}</h1>} />
+            <Route
+              path="/search-page"
+              element={
+                <SearchBar
+                  selectedCityFromApp={this.state.city}
+                  changeSelectedCityFromApp={this.changeCity}
+                />
+              }
+            />
+          </Routes>
+
+          <Link className="nav-link" to="/search-page">
+            <BsPlusCircle />
+          </Link>
+        </Container>
+        <Container fluid className="main-section">
+          <Routes>
+            <Route path="/search-page" element={<SearchResults />} />
+            <Route
+              path="/"
+              element={<CityWeather selectedCityFromApp={this.state.city} />}
+            />
+          </Routes>
+        </Container>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

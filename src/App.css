@@ -36,3 +36,50 @@
     transform: rotate(360deg);
   }
 }
+
+/* top part */
+
+.top-row {
+  display: flex;
+  background-color: #61dafb;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 2rem;
+  height: 10rem;
+}
+
+.top-row h1 {
+  font-size: 4rem;
+}
+
+.top-row a {
+  font-size: 5rem;
+  color: black;
+}
+
+/* main part */
+.current-weather {
+  display: flex;
+  height: 30rem;
+  background-color: #00c0f6;
+  font-size: 3rem;
+  align-items: end;
+  justify-content: space-between;
+  padding-inline: 4rem;
+}
+
+/* search part */
+.input-group {
+  font-size: 2rem;
+  height: 2rem;
+}
+
+.input-group input {
+  font-size: 2rem;
+  padding: 5px 10px;
+}
+
+.input-group .input-group-text {
+  border: 1px solid black;
+  padding: 5px 10px;
+}
