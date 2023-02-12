@@ -28,6 +28,7 @@ class App extends Component {
     });
   };
   changeCoordinates = (lonFromInput, latFromInput) => {
+    console.log("before change", this.state.city);
     this.setState({
       city: {
         ...this.state.city,
@@ -37,6 +38,7 @@ class App extends Component {
         },
       },
     });
+    console.log("after change", this.state.city);
   };
   render() {
     return (

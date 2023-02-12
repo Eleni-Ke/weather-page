@@ -14,6 +14,7 @@ const CityWeather = (props) => {
         <NextHours
           lon={props.selectedCityFromApp.coordinates.lon}
           lat={props.selectedCityFromApp.coordinates.lat}
+          selectedCityFromApp={props.selectedCityFromApp}
         />
       </div>
     </>

@@ -18,10 +18,13 @@ const CurrentWeather = (props) => {
       let res = await fetch(url + api + "&q=" + props.selectedCityFromApp.name);
       if (res.ok) {
         let cityDataRes = await res.json();
-        console.log(cityDataRes);
+
         setCityData(cityDataRes);
-        // console.log(cityData.coord.lon);
-        props.changeCoordinatesFromApp(cityData.coord.lon, cityData.coord.lat);
+        console.log(cityDataRes);
+        props.changeCoordinatesFromApp(
+          cityDataRes.coord.lon,
+          cityDataRes.coord.lat
+        );
       } else {
         console.log("there has been an error fetching");
       }

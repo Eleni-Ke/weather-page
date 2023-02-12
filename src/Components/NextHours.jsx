@@ -8,12 +8,13 @@ const NextHours = (props) => {
   let [hoursData, setHoursData] = useState([]);
   const getNextHoursData = async () => {
     try {
+      console.log(props.lat);
       let res = await fetch(url + "&lat=" + props.lat + "&lon=" + props.lon);
       if (res.ok) {
         let hoursDataRes = await res.json();
         console.log(hoursDataRes);
         let firstHours = hoursDataRes.list.slice(0, 6);
-        console.log(firstHours);
+
         setHoursData(firstHours);
       } else {
         console.log("there has been an error fetching");
@@ -25,7 +26,7 @@ const NextHours = (props) => {
   useEffect(() => {
     getNextHoursData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [props.selectedCityFromApp]);
   return (
     <>
       <h3>In 3 hour steps:</h3>
@@ -34,9 +35,9 @@ const NextHours = (props) => {
           hoursData.map((nextThreeHours) => {
             const time = new Date(Date.parse(nextThreeHours.dt_txt));
             const hours = time.getHours();
-            console.log(time);
+
             return (
-              <div className="next-hours-card">
+              <div className="next-hours-card" key={nextThreeHours.dt}>
                 <h4>{hours}:00</h4>
                 <img
                   src={`http://openweathermap.org/img/wn/${nextThreeHours.weather[0].icon}.png`}
@@ -44,10 +45,11 @@ const NextHours = (props) => {
                   className="smallWeatherLogo"
                 />
                 <div>
-                  <BsArrowDown />
-                  {nextThreeHours.main.temp_min}°C
                   <BsArrowUp />
                   {nextThreeHours.main.temp_max}°C
+                  <br />
+                  <BsArrowDown />
+                  {nextThreeHours.main.temp_min}°C
                 </div>
               </div>
             );
