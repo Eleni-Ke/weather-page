@@ -28,13 +28,16 @@ const NextHours = (props) => {
   }, []);
   return (
     <>
-      <h3>In the next hours:</h3>
+      <h3>In 3 hour steps:</h3>
       <div className="next-hours-row">
         {hoursData.length > 0 &&
           hoursData.map((nextThreeHours) => {
+            const time = new Date(Date.parse(nextThreeHours.dt_txt));
+            const hours = time.getHours();
+            console.log(time);
             return (
               <div className="next-hours-card">
-                <h4>Time</h4>
+                <h4>{hours}:00</h4>
                 <img
                   src={`http://openweathermap.org/img/wn/${nextThreeHours.weather[0].icon}.png`}
                   alt="logo for current weather"
