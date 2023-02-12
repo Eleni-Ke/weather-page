@@ -20,6 +20,8 @@ const CurrentWeather = (props) => {
         let cityDataRes = await res.json();
         console.log(cityDataRes);
         setCityData(cityDataRes);
+        // console.log(cityData.coord.lon);
+        props.changeCoordinatesFromApp(cityData.coord.lon, cityData.coord.lat);
       } else {
         console.log("there has been an error fetching");
       }
@@ -54,6 +56,7 @@ const CurrentWeather = (props) => {
       <div>
         <BsSunrise />
         <BsSunset />
+        {cityData.sys && <div>{cityData.sys.country}</div>}
       </div>
     </>
   );

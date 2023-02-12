@@ -5,10 +5,16 @@ const CityWeather = (props) => {
   return (
     <>
       <div className="current-weather">
-        <CurrentWeather selectedCityFromApp={props.selectedCityFromApp} />
+        <CurrentWeather
+          selectedCityFromApp={props.selectedCityFromApp}
+          changeCoordinatesFromApp={props.changeCoordinatesFromApp}
+        />
       </div>
       <div className="next-hours">
-        <NextHours lon="3.76" lat="8.34" />
+        <NextHours
+          lon={props.selectedCityFromApp.coordinates.lon}
+          lat={props.selectedCityFromApp.coordinates.lat}
+        />
       </div>
     </>
   );

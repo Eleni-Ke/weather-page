@@ -12,11 +12,31 @@ class App extends Component {
   state = {
     city: {
       name: "Karlsruhe",
+      coordinates: {
+        lon: 8.3858,
+        lat: 49.0047,
+      },
     },
   };
   changeCity = (nameFromInput) => {
     console.log(nameFromInput);
-    this.setState({ city: { name: nameFromInput } });
+    this.setState({
+      city: {
+        ...this.state.city,
+        name: nameFromInput,
+      },
+    });
+  };
+  changeCoordinates = (lonFromInput, latFromInput) => {
+    this.setState({
+      city: {
+        ...this.state.city,
+        coordinates: {
+          lon: lonFromInput,
+          lat: latFromInput,
+        },
+      },
+    });
   };
   render() {
     return (
@@ -47,7 +67,12 @@ class App extends Component {
             <Route path="/search-page" element={<SearchResults />} />
             <Route
               path="/"
-              element={<CityWeather selectedCityFromApp={this.state.city} />}
+              element={
+                <CityWeather
+                  selectedCityFromApp={this.state.city}
+                  changeCoordinatesFromApp={this.changeCoordinates}
+                />
+              }
             />
           </Routes>
         </Container>
