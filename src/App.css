@@ -67,6 +67,45 @@
   padding-inline: 4rem;
   border: 2px solid rgb(54, 8, 8);
   margin: 1rem;
+  background-color: rgba(255, 255, 255, 0.337);
+}
+
+.next-hours h3 {
+  font-size: 2.5rem;
+}
+
+.next-hours {
+  padding-inline: 4rem;
+  border: 2px solid rgb(54, 8, 8);
+  margin: 1rem;
+  background-color: rgba(255, 255, 255, 0.337);
+}
+
+.next-hours-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+}
+
+.next-hours-card {
+  border: 2px solid rgb(54, 8, 8);
+  width: 15%;
+  text-align: center;
+  font-size: 1.5rem;
+  padding-bottom: 2.5rem;
+  background-color: rgba(121, 190, 75, 0.792);
+}
+
+.next-hours-card img {
+  height: 5rem;
+}
+
+/* .next-hours-card h4 {
+  font-size: ;
+} */
+
+.weatherLogo {
+  height: 7rem;
 }
 
 /* search part */

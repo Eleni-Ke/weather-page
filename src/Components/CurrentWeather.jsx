@@ -17,9 +17,9 @@ const CurrentWeather = (props) => {
     try {
       let res = await fetch(url + api + "&q=" + props.selectedCityFromApp.name);
       if (res.ok) {
-        cityData = await res.json();
-        console.log(cityData);
-        setCityData(cityData);
+        let cityDataRes = await res.json();
+        console.log(cityDataRes);
+        setCityData(cityDataRes);
       } else {
         console.log("there has been an error fetching");
       }
@@ -37,7 +37,8 @@ const CurrentWeather = (props) => {
         {cityData.weather && (
           <img
             src={`http://openweathermap.org/img/wn/${cityData.weather[0].icon}.png`}
-            alt=""
+            alt="logo for current weather"
+            className="weatherLogo"
           />
         )}
         {cityData.main && (
