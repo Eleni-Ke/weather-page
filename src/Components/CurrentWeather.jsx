@@ -34,17 +34,21 @@ const CurrentWeather = (props) => {
   return (
     <>
       <div>
-        {/* <img
-          src={`http://openweathermap.org/img/wn/${cityData.weather[0].icon}.png`}
-          alt=""
-        />
-        <div>
-          <BsArrowDown />
-          {cityData.main.temp_min}°C
-          <BsArrowUp />
-          {cityData.main.temp_max}°C
-        </div>
-        <h2>{cityData.main.temp}°C</h2> */}
+        {cityData.weather && (
+          <img
+            src={`http://openweathermap.org/img/wn/${cityData.weather[0].icon}.png`}
+            alt=""
+          />
+        )}
+        {cityData.main && (
+          <div>
+            <BsArrowDown />
+            {cityData.main.temp_min}°C
+            <BsArrowUp />
+            {cityData.main.temp_max}°C
+          </div>
+        )}
+        {cityData.main && <h2>{cityData.main.temp}°C</h2>}
       </div>
       <div>
         <BsSunrise />

@@ -9,7 +9,9 @@ const SearchBar = (props) => {
         // value={props.selectedCityFromApp.name}
         onChange={(e) => props.changeSelectedCityFromApp(e.target.value)}
       />
-      <Link to="/">Search City</Link>
+      <Link to="/" className="searchCityLink">
+        Search City
+      </Link>
     </InputGroup>
   );
 };
